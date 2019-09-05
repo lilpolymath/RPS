@@ -22,11 +22,11 @@ const game = () => {
     const computerHand = document.querySelector('.computer-hand');
     const hands = document.querySelectorAll('.hands img');
 
-    // hands.forEach(hand => {
-    //     hand.addEventListener('animationend',  function() {
-    //         this.style.animation = '',
-    //     })
-    // })
+    hands.forEach(hand => {
+      hand.addEventListener('animationend', function() {
+        this.style.animation = '';
+      });
+    });
 
     const computerOptions = ['rock', 'paper', 'scissors'];
 
@@ -37,11 +37,11 @@ const game = () => {
 
         compare(this.textContent, computerChoice);
         updateScore();
-        playerHand.src = `./assets/${this.textContent}.png`;
+        playerHand.src = `./assets/p${this.textContent}.png`;
         computerHand.src = `./assets/${computerChoice}.png`;
 
-        playerHand.style.animation = 'shaker 2s ease';
         computerHand.style.animation = 'shakePlayer 2s ease';
+        playerHand.style.animation = 'shakePlayer 2s ease';
       });
     });
   };
