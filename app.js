@@ -1,4 +1,26 @@
 const game = () => {
+  var numm = 1;
+  const change = () => {
+    var num = document.getElementById('num');
+    if (numm <= 100) {
+      document.getElementsByClassName('game').style = 'display:none;';
+      num.innerHTML = numm;
+      numm++;
+    } else {
+      document.getElementById('dots').style = 'display:none;';
+      document.getElementById('game').style = 'display:unset;';
+      document.getElementById('body').style = 'display:unset;';
+      document.getElementById('body').style.background = '#ff9999';
+
+      // setTimeout(function() {
+      //   document.getElementById('body').style.background = '#9999ff';
+      // }, 5000);
+    }
+  };
+
+  setInterval(change, 100);
+
+  // setInterval(time, 1000);
   let pScore = 0;
   let cScore = 0;
 

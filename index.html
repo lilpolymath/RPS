@@ -7,8 +7,20 @@
     <link rel="stylesheet" href="./style.css" />
     <title>Rock Paper Scissors</title>
   </head>
-  <body>
-    <section class="game">
+  <body id="body">
+    <all id="dots">
+      <div class="loading-icon">
+        <p>Loading...<num id="num">0</num>%</p>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </all>
+    <section id="game" style="display: none;">
       <div class="score">
         <div class="player-score">
           <h2>Player</h2>
