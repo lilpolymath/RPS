@@ -4,6 +4,109 @@
   box-sizing: border-box;
 }
 
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 95vh;
+}
+#body {
+  background: orange;
+  transition: background 5s linear;
+}
+.loading-icon {
+  text-align: center;
+  background: white;
+  border-radius: 5px;
+  padding: 25px 35px 35px;
+  box-shadow: -10px 10px 0 rgba(0, 0, 0, 0.07);
+}
+.loading-icon p {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 4px;
+  font-family: futura, sans-serif;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.dot {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  background: orangered;
+  border-radius: 50%;
+  margin: 10px;
+  animation-name: scaleUp;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.dot:nth-of-type(1n) {
+  animation-delay: 0.1s;
+}
+
+.dot:nth-of-type(2n) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-of-type(3n) {
+  animation-delay: 0.3s;
+}
+
+.dot:nth-of-type(4n) {
+  animation-delay: 0.4s;
+}
+
+.dot:nth-of-type(5n) {
+  animation-delay: 0.5s;
+}
+
+.dot:nth-of-type(6n) {
+  animation-delay: 0.6s;
+}
+
+.dot:nth-of-type(7n) {
+  animation-delay: 0.7s;
+}
+@-webkit-keyframes scaleUp {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+#text {
+  display: none;
+  color: white;
+  font-size: 20px;
+  font-style: sans-serif;
+}
+#btn {
+  display: none;
+  height: 50px;
+  width: 120px;
+  border: none;
+  background: orange;
+}
+
 section {
   height: 100vh;
   background-color: indigo;
