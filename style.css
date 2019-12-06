@@ -257,3 +257,122 @@ div.fadeIn {
     transform: translateY(0px);
   }
 }
+
+.modalDialog {
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.2);
+  display: none;
+  z-index: 1;
+}
+
+.modal-body {
+  width: 50%;
+  height: 500px;
+  position: relative;
+  margin: 11% auto;
+  padding-top: 1px;
+  border-radius: 20px;
+  background: url(../rect.svg);
+}
+
+.first {
+  text-align: center;
+  font-family: Work Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 56px;
+  margin: 25px;
+  text-transform: uppercase;
+}
+
+.second {
+  text-align: center;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  text-transform: uppercase;
+  margin: 35px 0 35px 0px;
+}
+
+.player {
+  margin: 0;
+  width: 50%;
+  height: 50px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.computer {
+  margin: 0;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  text-transform: uppercase;
+  width: 50%;
+  height: 50px;
+  text-align: center;
+}
+
+.playerScore {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 48px;
+  text-transform: uppercase;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.computerScore {
+  margin-top: 15px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 48px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.scores {
+  width: 60%;
+  height: 100px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  margin-left: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scoreContainer {
+  margin-right: 50px;
+  text-align: center;
+}
+
+.btn {
+  text-align: center;
+  margin-top: 40px;
+}
+.replay {
+  text-align: center;
+  text-transform: uppercase;
+  border: none;
+  color: #ececec;
+  width: 180px;
+  height: 50px;
+  font-size: 24px;
+  background: #ff9900;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+}
