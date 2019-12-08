@@ -4,9 +4,6 @@ const close = document.getElementById('close');
 close.onclick = function() {
   myModal.style.display = 'none';
   startGame();
-  alert(
-    'Please refresh the window to start a new game. Will fix it later in the day.'
-  );
 };
 
 const load = () => {
@@ -30,13 +27,14 @@ const load = () => {
 };
 
 // Main variables in use
-let pScore = 0;
-let cScore = 0;
-let gameCount = 10;
+let pScore, cScore, gameCount;
 
 // This handles the transistioning in and out
 // of the introScreen and matchScreen
 const startGame = () => {
+  pScore = 0;
+  cScore = 0;
+  gameCount = 10;
   const playBtn = document.querySelector('.intro button');
   const introScreen = document.querySelector('.intro');
   const match = document.querySelector('.match');
