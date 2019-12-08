@@ -93,19 +93,6 @@ body {
     transform: scale(1);
   }
 }
-#text {
-  display: none;
-  color: white;
-  font-size: 20px;
-  font-style: sans-serif;
-}
-#btn {
-  display: none;
-  height: 50px;
-  width: 120px;
-  border: none;
-  background: orange;
-}
 
 section {
   height: 100vh;
@@ -170,10 +157,6 @@ section {
   text-align: center;
   font-size: 50px;
 }
-
-/* .player-hand {
-  transform: rotateY(180deg);
-} */
 
 .hands {
   display: flex;
@@ -271,10 +254,10 @@ div.fadeIn {
 }
 
 .modal-body {
-  width: 50%;
-  height: 500px;
+  width: 40%;
+  height: 40%;
   position: relative;
-  margin: 11% auto;
+  margin: 15% auto;
   padding-top: 1px;
   border-radius: 20px;
   background: url(../rect.svg);
@@ -285,8 +268,9 @@ div.fadeIn {
   font-family: Work Sans;
   font-style: normal;
   font-weight: normal;
-  font-size: 56px;
   margin: 25px;
+  font-size: 36px;
+
   text-transform: uppercase;
 }
 
@@ -295,14 +279,12 @@ div.fadeIn {
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
-  font-size: 48px;
+  font-size: 36px;
   text-transform: uppercase;
   margin: 35px 0 35px 0px;
 }
 
 .player {
-  margin: 0;
-  width: 50%;
   height: 50px;
   font-family: Raleway;
   font-style: normal;
@@ -313,14 +295,12 @@ div.fadeIn {
 }
 
 .computer {
-  margin: 0;
   font-family: Raleway;
   font-style: normal;
   font-weight: normal;
-  font-size: 36px;
   text-transform: uppercase;
-  width: 50%;
   height: 50px;
+  font-size: 36px;
   text-align: center;
 }
 
@@ -329,7 +309,6 @@ div.fadeIn {
   font-style: normal;
   font-weight: normal;
   font-size: 36px;
-  line-height: 48px;
   text-transform: uppercase;
   margin-top: 15px;
   text-align: center;
@@ -341,18 +320,13 @@ div.fadeIn {
   font-style: normal;
   font-weight: normal;
   font-size: 36px;
-  line-height: 48px;
   text-align: center;
   text-transform: uppercase;
 }
 .scores {
-  width: 60%;
   height: 100px;
-  margin-top: 40px;
-  margin-bottom: 30px;
-  margin-left: 20%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -363,16 +337,38 @@ div.fadeIn {
 
 .btn {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 .replay {
   text-align: center;
   text-transform: uppercase;
   border: none;
   color: #ececec;
-  width: 180px;
+  width: 150px;
   height: 50px;
-  font-size: 24px;
+  font-size: 18px;
   background: #ff9900;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+@media only screen and (max-width: 768px) {
+  .modal-body {
+    width: 75%;
+    height: 40%;
+    position: relative;
+    margin: 15% auto;
+    padding-top: 1px;
+    border-radius: 20px;
+    background: url(../rect.svg);
+  }
+
+  .scores h4 {
+    font-size: 24px;
+  }
+  .modal-body h2 {
+    font-size: 28px;
+  }
+  .modal-body h4 {
+    font-size: 26px;
+  }
 }

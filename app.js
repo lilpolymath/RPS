@@ -10,7 +10,6 @@ close.onclick = function() {
 };
 
 const load = () => {
-  alert('Note mobile responsive yet..');
   var numm = 1;
   const change = () => {
     var num = document.getElementById('num');
