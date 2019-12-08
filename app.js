@@ -1,11 +1,28 @@
+// Main variables in use
+let pScore, cScore, gameCount;
+const playerScore = document.querySelector('.player-score p');
+const computerScore = document.querySelector('.computer-score p');
+const playBtn = document.querySelector('.intro button');
+const introScreen = document.querySelector('.intro');
+const match = document.querySelector('.match');
+const options = document.querySelectorAll('.options button');
+const playerHand = document.querySelector('.player-hand');
+const computerHand = document.querySelector('.computer-hand');
+const hands = document.querySelectorAll('.hands img');
+const pScoreResult = document.querySelector('.player-result p');
+const cScoreResult = document.querySelector('.computer-result p');
+const matchResult = document.querySelector('.second-div h3');
+const computerOptions = ['rock', 'paper', 'scissors'];
 const myModal = document.getElementById('openModal');
-
 const close = document.getElementById('close');
+
+// To close the scoreboard.
 close.onclick = function() {
   myModal.style.display = 'none';
   startGame();
 };
 
+// This is for the loading animation at the start.
 const load = () => {
   var numm = 1;
   const change = () => {
@@ -24,49 +41,46 @@ const load = () => {
 
   setInterval(change, 100);
   startGame();
+  console.log(gameCount);
 };
 
-// Main variables in use
-let pScore, cScore, gameCount;
-
-// This handles the transistioning in and out
-// of the introScreen and matchScreen
+// This handles the transistion from introScreen to matchScreen.
 const startGame = () => {
-  pScore = 0;
-  cScore = 0;
-  gameCount = 10;
-  const playBtn = document.querySelector('.intro button');
-  const introScreen = document.querySelector('.intro');
-  const match = document.querySelector('.match');
-
   playBtn.addEventListener('click', () => {
     introScreen.classList.add('fadeOut');
     match.classList.add('fadeIn');
   });
   playMatch();
+  console.log('Inside startgame');
 };
 
-//  Logic for the Game playing
+//  The main game playing.
 const playMatch = () => {
-  const options = document.querySelectorAll('.options button');
-  const playerHand = document.querySelector('.player-hand');
-  const computerHand = document.querySelector('.computer-hand');
-  const hands = document.querySelectorAll('.hands img');
+  pScore = 0;
+  cScore = 0;
+  gameCount = 10;
+  console.log(pScore, cScore, gameCount);
 
+  // Check if an hand is selected.
   hands.forEach(hand => {
     hand.addEventListener('animationend', function() {
       this.style.animation = '';
     });
   });
 
-  const computerOptions = ['rock', 'paper', 'scissors'];
+  random();
+};
 
+// This is for the computer to make a random choice.
+const random = () => {
   options.forEach(option => {
     option.addEventListener('click', function() {
+      console.log('Called 1.');
       const computerNumber = Math.floor(Math.random() * 3);
       const computerChoice = computerOptions[computerNumber];
-      if (gameCount != 0) {
+      if (gameCount != 1) {
         compare(this.textContent, computerChoice);
+
         playerHand.src = `./assets/p${this.textContent}.png`;
         computerHand.src = `./assets/${computerChoice}.png`;
 
@@ -74,39 +88,42 @@ const playMatch = () => {
         playerHand.style.animation = 'shakePlayer 2s ease';
 
         updateScore();
+        console.log(pScore, cScore, gameCount);
+        console.log('Inside the If.');
       } else {
         result();
+        console.log('Inside the Else.');
+        console.log(pScore, cScore, gameCount);
       }
     });
   });
 };
 
+// This is to update the scoreboard.
 const result = () => {
-  const pScoreResult = document.querySelector('.player-result p');
-  const cScoreResult = document.querySelector('.computer-result p');
-  const result = document.querySelector('.second-div h3');
-
   pScoreResult.textContent = pScore;
   cScoreResult.textContent = cScore;
   if (pScore > cScore) {
-    result.textContent = 'You Win!';
+    matchResult.textContent = 'You Win!';
   } else if (cScore > pScore) {
-    result.textContent = 'You Lose!';
+    matchResult.textContent = 'You Lose!';
   } else {
-    result.textContent = 'Draw!';
+    matchResult.textContent = 'Draw!';
   }
   myModal.style = 'display: block';
 };
 
+// This updates the score.
 const updateScore = () => {
-  const playerScore = document.querySelector('.player-score p');
-  const computerScore = document.querySelector('.computer-score p');
-
-  playerScore.textContent = pScore;
+  playerScore.textContesnt = pScore;
   computerScore.textContent = cScore;
+  console.log(pScore, cScore, gameCount);
+  console.log('Inside Update score');
+
   gameCount--;
 };
 
+// This is to compare the hands and update the scores
 const compare = (playerChoice, computerChoice) => {
   const winner = document.querySelector('.winner');
   if (playerChoice === computerChoice) {
