@@ -41,7 +41,6 @@ const load = () => {
 
   setInterval(change, 100);
   startGame();
-  console.log(gameCount);
 };
 
 // This handles the transistion from introScreen to matchScreen.
@@ -51,7 +50,6 @@ const startGame = () => {
     match.classList.add('fadeIn');
   });
   playMatch();
-  console.log('Inside startgame');
 };
 
 //  The main game playing.
@@ -59,9 +57,12 @@ const playMatch = () => {
   pScore = 0;
   cScore = 0;
   gameCount = 10;
-  console.log(pScore, cScore, gameCount);
 
-  // Check if an hand is selected.
+  // To reset the scores of the players
+  pScoreResult.textContent = pScore;
+  cScoreResult.textContent = cScore;
+
+  // Listen for an hand to be selected.
   hands.forEach(hand => {
     hand.addEventListener('animationend', function() {
       this.style.animation = '';
@@ -74,8 +75,7 @@ const playMatch = () => {
 // This is for the computer to make a random choice.
 const random = () => {
   options.forEach(option => {
-    option.addEventListener('click', function() {
-      console.log('Called 1.');
+    option.onclick = function() {
       const computerNumber = Math.floor(Math.random() * 3);
       const computerChoice = computerOptions[computerNumber];
       if (gameCount != 1) {
@@ -88,14 +88,10 @@ const random = () => {
         playerHand.style.animation = 'shakePlayer 2s ease';
 
         updateScore();
-        console.log(pScore, cScore, gameCount);
-        console.log('Inside the If.');
       } else {
         result();
-        console.log('Inside the Else.');
-        console.log(pScore, cScore, gameCount);
       }
-    });
+    };
   });
 };
 
@@ -113,12 +109,10 @@ const result = () => {
   myModal.style = 'display: block';
 };
 
-// This updates the score.
+// This updates the score and game count.
 const updateScore = () => {
-  playerScore.textContesnt = pScore;
+  playerScore.textContent = pScore;
   computerScore.textContent = cScore;
-  console.log(pScore, cScore, gameCount);
-  console.log('Inside Update score');
 
   gameCount--;
 };
